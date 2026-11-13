@@ -1145,7 +1145,7 @@ This section contains a number of tips and tricks for maximizing CORTAO performa
 
 <h1>Version log</h1>
 
-- 1.0.1 (2026-11-13): Fixed broken deinterleave() functions and incorrect defines (CORTAO_USE_OCCLUDER_LOOKUP_TABLE --> CORTAO_OCCLUDER_LOOKUP_TABLE) in the HLSL and GLSL reference main pass implementation example files.
+- 1.0.1 (2026-11-13): Fixed broken deinterleave() functions and incorrect defines (CORTAO_USE_OCCLUDER_LOOKUP_TABLE --> CORTAO_OCCLUDER_LOOKUP_TABLE) in the HLSL and GLSL reference main pass implementation example files. Thanks to Philip Degarmo for reporting this issue.
 - 1.0.0 (2026-11-05): Initial release.
 
 <h1>Author</h1>
