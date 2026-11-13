@@ -546,13 +546,13 @@ Any user data needed to unpack and/or convert the input normal to view space wil
 
 The recommended workgroup size for the prepass is 8x8. Smaller workgroup sizes improves the efficiency of the mipmap generation by stalling fewer threads.
 
-<h3>DX12 HLSL reference implementations</h3>
+<h3>DX12 HLSL example implementations</h3>
 
-- [Reference implementation](src/shaders/reference/hlsl/CORTAOPrepassReference.hlsl)
+- [Example implementation](src/shaders/reference/hlsl/CORTAOPrepassReference.hlsl)
 
-<h3>Vulkan GLSL reference implementations</h3>
+<h3>Vulkan GLSL example implementations</h3>
 
-- [Reference implementation](src/shaders/reference/glsl/CORTAOPrepassReference.glsl)
+- [Example implementation](src/shaders/reference/glsl/CORTAOPrepassReference.glsl)
 
 <h2>The main pass</h2>
 
@@ -707,13 +707,13 @@ The workgroup size is an important consideration for the main pass. Larger workg
 
 The recommended workgroup size for the main pass is 16x16 to provide a good balance between cache coherency and GPU utilization. If using a higher mip bias than the recommended value or running CORTAO on hardware with limited memory bandwidth, try to increase the work group size to 32x32 and remeasure performance.
 
-<h3>DX12 HLSL reference implementations</h3>
+<h3>DX12 HLSL example implementations</h3>
 
 - [Occlusion only implementation](src/shaders/reference/hlsl/CORTAOMainPassOcclusionReference.hlsl)
 - [Occlusion and bent normal implementation](src/shaders/reference/hlsl/CORTAOMainPassBentNormalReference.hlsl) (when used directly, without a subsequent filter pass)
 - [Packed occlusion and bent normal implementation](src/shaders/reference/hlsl/CORTAOMainPassPackedBentNormalReference.hlsl) (when used with a subsequent filter pass)
 
-<h3>Vulkan GLSL reference implementations</h3>
+<h3>Vulkan GLSL example implementations</h3>
 
 - [Occlusion only implementation](src/shaders/reference/glsl/CORTAOMainPassOcclusionReference.glsl)
 - [Occlusion and bent normal implementation](src/shaders/reference/glsl/CORTAOMainPassBentNormalReference.glsl) (when used directly, without a subsequent filter pass)
@@ -858,12 +858,12 @@ The filter pass operates in a different way from the other passes. Each compute 
 
 The recommended workgroup size is 8x8, which effectively results in each workgroup processing a 16x16 tile of pixels. Make sure to take this into consideration when dispatching the compute shader for this pass.
 
-<h3>DX12 HLSL reference implementations</h3>
+<h3>DX12 HLSL example implementations</h3>
 
 - [Occlusion only implementation](src/shaders/reference/hlsl/CORTAOFilterPassOcclusionReference.hlsl)
 - [Occlusion and bent normal implementation](src/shaders/reference/hlsl/CORTAOFilterPassBentNormalReference.hlsl) (expects the output of the main pass to be packed)
 
-<h3>Vulkan GLSL reference implementations</h3>
+<h3>Vulkan GLSL example implementations</h3>
 
 - [Occlusion only implementation](src/shaders/reference/glsl/CORTAOFilterPassOcclusionReference.glsl)
 - [Occlusion and bent normal implementation](src/shaders/reference/glsl/CORTAOFilterPassBentNormalReference.glsl) (expects the output of the main pass to be packed)
@@ -1145,7 +1145,8 @@ This section contains a number of tips and tricks for maximizing CORTAO performa
 
 <h1>Version log</h1>
 
-- 1.00 (2026-11-05): Initial release.
+- 1.0.1 (2026-11-13): Fixed broken deinterleave() functions and incorrect defines (CORTAO_USE_OCCLUDER_LOOKUP_TABLE --> CORTAO_OCCLUDER_LOOKUP_TABLE) in the HLSL and GLSL reference main pass implementation example files.
+- 1.0.0 (2026-11-05): Initial release.
 
 <h1>Author</h1>
 

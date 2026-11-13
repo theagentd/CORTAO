@@ -1,4 +1,4 @@
-// CORTAO Reference Implementation v1.0.0
+// CORTAO Reference Implementation v1.0.1
 //
 // MIT License
 //
@@ -39,7 +39,7 @@
 #define CORTAO_16_BIT 0 //Not recommended for main pass
 #define CORTAO_SAMPLE_COUNT 16
 #define CORTAO_RAY_COUNT 16
-#define CORTAO_USE_OCCLUDER_LOOKUP_TABLE 1
+#define CORTAO_OCCLUDER_LOOKUP_TABLE 1
 
 //Include the shader
 #include <CORTAOMainPass.h>
@@ -84,7 +84,8 @@ void cortao_writeResult(cortao_int2 pixelCoords, cortao_half occlusion, cortao_h
 //Reorders the threads inside the workgroup to be more cache coherent
 uvec2 deinterleave(uint index) {
 	uvec2 p = uvec2(index, index) >> uvec2(0, 1);
-
+	
+	p &= 0x5555u;
 	p = (p ^ (p >> 1u)) & 0x3333u;
 	p = (p ^ (p >> 2u)) & 0x0f0fu;
 	p = (p ^ (p >> 4u)) & 0x00ffu;

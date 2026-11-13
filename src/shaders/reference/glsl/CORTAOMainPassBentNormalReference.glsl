@@ -1,4 +1,4 @@
-// CORTAO Reference Implementation v1.0.0
+// CORTAO Reference Implementation v1.0.1
 //
 // MIT License
 //
@@ -91,7 +91,8 @@ void cortao_writeResult(cortao_int2 pixelCoords, cortao_half occlusion, cortao_h
 //Reorders the threads inside the workgroup to be more cache coherent
 uvec2 deinterleave(uint index) {
 	uvec2 p = uvec2(index, index) >> uvec2(0, 1);
-
+	
+	p &= 0x5555u;
 	p = (p ^ (p >> 1u)) & 0x3333u;
 	p = (p ^ (p >> 2u)) & 0x0f0fu;
 	p = (p ^ (p >> 4u)) & 0x00ffu;

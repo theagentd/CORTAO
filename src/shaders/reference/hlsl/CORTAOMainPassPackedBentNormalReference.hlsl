@@ -1,4 +1,4 @@
-// CORTAO Reference Implementation v1.0.0
+// CORTAO Reference Implementation v1.0.1
 //
 // MIT License
 //
@@ -28,7 +28,7 @@
 #define CORTAO_16_BIT 0 //Not recommended for main pass, requires enable-16bit-types
 #define CORTAO_SAMPLE_COUNT 16
 #define CORTAO_RAY_COUNT 16
-#define CORTAO_USE_OCCLUDER_LOOKUP_TABLE 1
+#define CORTAO_OCCLUDER_LOOKUP_TABLE 1
 #define CORTAO_BENT_NORMAL_LOOKUP_TABLE 1
 
 //Include the shader
@@ -48,7 +48,7 @@ SamplerState nearestBorderSampler : register(s0); //FILTER_MIN_MAG_MIP_POINT, TE
 SamplerState nearestClampSampler : register(s1); //FILTER_MIN_MAG_MIP_POINT, TEXTURE_ADDRESS_CLAMP
 
 //Image resources
-RWTexture2D<cortao_half4> outputBuffer : register(u0); //R32_UINT (packed R8G8B8A8_UNORM)
+RWTexture2D<cortao_uint> outputBuffer : register(u0); //R32_UINT (packed R8G8B8A8_UNORM)
 
 //Input callback implementations
 cortao_uint cortao_samplePackedData(cortao_float2 texCoords, cortao_float mipmap) {
