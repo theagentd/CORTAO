@@ -1,4 +1,4 @@
-// CORTAO Reference Implementation v1.0.1
+// CORTAO Reference Implementation v1.0.2
 //
 // MIT License
 //
@@ -146,7 +146,7 @@ void populateMainPassParameters(const CORTAOConfigurationParameters& configurati
 		parameters->unprojectParamsX = +2.0f * invX;
 		parameters->unprojectParamsY = -2.0f * invY;
 		parameters->unprojectParamsZ = -invX + invOffsetX;
-		parameters->unprojectParamsW = +invY - invOffsetY;
+		parameters->unprojectParamsW = +invY + invOffsetY;
 
 		parameters->projectionParamsX = +0.5f * projX;
 		parameters->projectionParamsY = -0.5f * projY;

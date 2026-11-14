@@ -1145,7 +1145,8 @@ This section contains a number of tips and tricks for maximizing CORTAO performa
 
 <h1>Version log</h1>
 
-- 1.0.1 (2026-11-13): Fixed broken deinterleave() functions and incorrect defines (CORTAO_USE_OCCLUDER_LOOKUP_TABLE --> CORTAO_OCCLUDER_LOOKUP_TABLE) in the HLSL and GLSL reference main pass implementation example files. Thanks to Philip Degarmo for reporting this issue.
+- 1.0.2 (2026-11-14): Fixed an incorrect sign in the calculation of ``unprojectParamsW`` in ``CortaoParameters.h``, causing issues with off-center projection matrices when ``flipY`` is enabled. Thanks to [Joe Leaver](https://github.com/joeleaver) for reporting this issue.
+- 1.0.1 (2026-11-13): Fixed the broken deinterleave() function and incorrect use of the outdated define ``CORTAO_USE_OCCLUDER_LOOKUP_TABLE`` in the main pass implementation example files. Thanks to Philip Degarmo for reporting this issue.
 - 1.0.0 (2026-11-05): Initial release.
 
 <h1>Author</h1>
