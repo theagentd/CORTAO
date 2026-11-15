@@ -1,4 +1,4 @@
-// CORTAO Reference Implementation v1.0.2
+// CORTAO Reference Implementation v1.0.3
 //
 // MIT License
 //
@@ -47,11 +47,11 @@ struct CORTAOConfigurationParameters {
 	float mipBias = -4.0f;
 	float maxSlopeCompensation = 4.0f;
 	float backfaceThreshold = 0.5f;
-	float backfaceBoost = 0.5f;
+	float backfaceBoost = 0.0f;
 
 	//Filter parameters
 	float filterDepthSensitivity = 512.0f;
-	float filterNormalSensitivity = 16.0f;
+	float filterNormalSensitivity = 128.0f;
 };
 
 struct CORTAOPrepassParameters {

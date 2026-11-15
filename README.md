@@ -267,11 +267,11 @@ struct CORTAOConfigurationParameters {
 	float mipBias = -4.0f;
 	float maxSlopeCompensation = 4.0f;
 	float backfaceThreshold = 0.5f;
-	float backfaceBoost = 0.5f;
+	float backfaceBoost = 0.0f;
 
 	//Filter parameters
 	float filterDepthSensitivity = 512.0f;
-	float filterNormalSensitivity = 16.0f;
+	float filterNormalSensitivity = 128.0f;
 };
 ```
 
@@ -428,7 +428,7 @@ Games with mainly flat surfaces can increase the sensitivity further to improve 
 
 This value controls the normal sensitivity of the filter pass. A higher value results in less blurring between pixels with different normals.
 
-A good default value is 16.0. The valid range is any positive value, including 0.0 which disables the normal check completely.
+A good default value is 128.0. The valid range is any positive value, including 0.0 which disables the normal check completely.
 
 Games with mainly flat surfaces can increase the sensitivity further to improve sharpness, while games with more organic/rounded geometry should reduce the sensitivity to prevent excessive noise.
 
@@ -1145,6 +1145,7 @@ This section contains a number of tips and tricks for maximizing CORTAO performa
 
 <h1>Version log</h1>
 
+- 1.0.3 (2026-11-15): Fixed contradicting recommended default values for ``backfaceBoost``. Thanks to [Joe Leaver](https://github.com/joeleaver) for reporting this issue. Also increased the default filter normal sensitivity based on testing suggesting that the previous default value was too low.
 - 1.0.2 (2026-11-14): Fixed an incorrect sign in the calculation of ``unprojectParamsW`` in ``CortaoParameters.h``, causing issues with off-center projection matrices when ``flipY`` is enabled. Thanks to [Joe Leaver](https://github.com/joeleaver) for reporting this issue.
 - 1.0.1 (2026-11-13): Fixed the broken deinterleave() function and incorrect use of the outdated define ``CORTAO_USE_OCCLUDER_LOOKUP_TABLE`` in the main pass implementation example files. Thanks to Philip Degarmo for reporting this issue.
 - 1.0.0 (2026-11-05): Initial release.

@@ -1,4 +1,4 @@
-// CORTAO Reference Implementation v1.0.2
+// CORTAO Reference Implementation v1.0.3
 //
 // MIT License
 //
